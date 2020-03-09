@@ -5,10 +5,10 @@ const moment = require('moment')
 const path = require('path')
 
 var rule = new schedule.RecurrenceRule();
-rule.minute = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55];
-console.log('waitting screen shot.')
+rule.minute = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55]; //take screen shot each 5 min
+console.log('waiting screen shot.')
 var j = schedule.scheduleJob(rule, function () {
-    //截图
+    //take a screen shot
     screenshot().then(
         (img) => {
             var p = path.join(__dirname, moment().format('YYYYMMDD-HHmmss.jpg'))
